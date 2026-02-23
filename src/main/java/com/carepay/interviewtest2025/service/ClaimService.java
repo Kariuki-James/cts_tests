@@ -49,6 +49,23 @@ public ClaimService(ClaimRepository claimRepository, ClaimItemRepository itemRep
         return toResponse(saved);
     }
 
+
+    @Transactional
+    public ClaimItemResponse addItem(Long claimId, ClaimItemCreateRequest req) {
+        Claim claim = claimRepository.findById(claimId)
+            .orElseThrow(() -> new IllegalArgumentException("Claim not found: " + claimId));
+
+        ClaimItem item = new ClaimItem();
+        item.setDescription(req.getDescription());
+        item.setAmount(req.getAmount());
+        item.setStatus(req.getStatus());
+        claim.addItem(item);
+
+        ClaimItem savedItem = itemRepository.save(item);
+        return new ClaimItemResponse(savedItem.getId(), savedItem.getDescription(), savedItem.getAmount(), savedItem.getStatus());
+    }
+
+
     public ClaimResponse getClaim (Long id){
         Claim claim = claimRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Claim not found: " + id));

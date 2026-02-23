@@ -34,7 +34,7 @@ public class ClaimController {
     @PostMapping("/{id}/items")
     @ResponseStatus(HttpStatus.CREATED)
     public ClaimItemResponse addItem(@PathVariable Long id, @Valid @RequestBody ClaimItemCreateRequest request) {
-        throw new NotImplementedException();
+        return claimService.addItem(id, request);
     }
 
     @GetMapping("/{id}")
