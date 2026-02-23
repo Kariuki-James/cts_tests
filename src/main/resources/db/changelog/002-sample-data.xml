@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet id="002-sample-data" author="admin">
+
+    <insert tableName="claim">
+      <column name="id" value="18"/>
+      <column name="policy_number" value="POL-1850"/>
+      <column name="claimant_name" value="James Kariuki"/>
+      <column name="status" value="OPEN"/>
+      <column name="created_at" valueDate="2026-01-01T00:00:00"/>
+    </insert>
+
+    <insert tableName="claim_items">
+      <column name="id" value="21"/>
+      <column name="claim_id" value="18"/>
+      <column name="description" value="Screen replacement"/>
+      <column name="amount" value="120.50"/>
+      <column name="status" value="PENDING"/>
+      <column name="created_at" valueDate="2026-01-01T00:00:00"/>
+    </insert>
+
+    <insert tableName="claim_items">
+      <column name="id" value="22"/>
+      <column name="claim_id" value="18"/>
+      <column name="description" value="Battery"/>
+      <column name="amount" value="40.00"/>
+      <column name="status" value="APPROVED"/>
+      <column name="created_at" valueDate="2026-01-01T00:00:00"/>
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>
