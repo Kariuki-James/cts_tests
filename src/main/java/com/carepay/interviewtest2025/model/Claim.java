@@ -38,8 +38,8 @@ public class Claim {
     private String policyNumber;
 
 
-    @Column(name = "patient_name", nullable = false)
-    private String patientName;
+    @Column(name = "claimant_name", nullable = false)
+    private String claimantName;
 
 
     @Enumerated(EnumType.STRING)
@@ -62,6 +62,6 @@ public class Claim {
 
     public void addItem(ClaimItem item) {
         item.setClaim(this);
-        //this.items.add(item);
+        this.items.add(item);
     }
 }

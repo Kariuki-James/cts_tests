@@ -30,7 +30,7 @@ public ClaimService(ClaimRepository claimRepository, ClaimItemRepository itemRep
     public ClaimResponse createClaim (ClaimCreateRequest req){
         Claim claim = new Claim();
         claim.setPolicyNumber(req.getPolicyNumber());
-        claim.setPatientName(req.getPatientName());
+        claim.setClaimantName(req.getClaimantName());
         claim.setStatus(req.getStatus());
 
 
@@ -63,7 +63,7 @@ public ClaimService(ClaimRepository claimRepository, ClaimItemRepository itemRep
         return new ClaimResponse(
                 claim.getId(),
                 claim.getPolicyNumber(),
-                claim.getPatientName(),
+                claim.getClaimantName(),
                 claim.getStatus(),
                 claim.getCreatedAt(),
                 items

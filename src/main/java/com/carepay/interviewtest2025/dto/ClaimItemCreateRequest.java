@@ -20,5 +20,6 @@ public class ClaimItemCreateRequest {
     private BigDecimal amount;
 
 
-    private final ClaimItemStatus status = ClaimItemStatus.PENDING;
+    @NotNull
+    private ClaimItemStatus status;
 }

@@ -5,10 +5,8 @@ import lombok.Value;
 
 import java.math.BigDecimal;
 
-@Value
-public class ClaimItemResponse {
-    private Long id;
-    private String description;
-    private BigDecimal amount;
-    private ClaimItemStatus status;
-}
+public record ClaimItemResponse(
+    Long id,
+    String description,
+    BigDecimal amount,
+    ClaimItemStatus status) { }

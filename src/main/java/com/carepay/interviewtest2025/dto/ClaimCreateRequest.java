@@ -3,6 +3,7 @@ package com.carepay.interviewtest2025.dto;
 import com.carepay.interviewtest2025.model.ClaimStatus;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,8 +17,10 @@ public class ClaimCreateRequest {
     private String policyNumber;
 
     @NotBlank
-    private String patientName;
-    private final ClaimStatus status = ClaimStatus.OPEN;
+    private String claimantName;
+
+    @NotNull
+    private ClaimStatus status;
 
 
     @Valid
