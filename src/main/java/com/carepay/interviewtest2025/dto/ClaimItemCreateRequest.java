@@ -8,9 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import lombok.Setter;
 
 @NoArgsConstructor
 @Getter
+@Setter
 public class ClaimItemCreateRequest {
     @NotBlank
     private String description;
